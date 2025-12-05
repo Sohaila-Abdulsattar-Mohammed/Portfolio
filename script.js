@@ -6,7 +6,7 @@ const textBlock = document.getElementById('text-block');
 const staticIntro = document.getElementById('static-intro');
 
 const highlightBox = document.getElementById('highlight-box');
-const loremText = document.getElementById('lorem-text');
+const description = document.getElementById('description-text');
 const heroTextContainer = document.getElementById('hero-text-container');
 const contentSection = document.getElementById('content-section');
 
@@ -110,7 +110,7 @@ function updateContent(index) {
     const newTitle = data.title;
     
     // Elements to target for the transition (excluding staticIntro)
-    const targetElements = document.querySelectorAll('#highlight-box .letter, #lorem-text .letter');
+    const targetElements = document.querySelectorAll('#highlight-box .letter, #description-text .letter');
     
     // 1. Anime.js Fade Out (NON-STAGGERED)
     anime.timeline({})
@@ -123,14 +123,14 @@ function updateContent(index) {
             complete: () => {
                 // 2. Change Text Content & Re-wrap when invisible
                 highlightBox.textContent = newTitle;
-                loremText.textContent = data.text; 
+                description.textContent = data.text; 
 
                 wrapTextInSpans(highlightBox);
-                wrapTextInSpans(loremText);
+                wrapTextInSpans(description);
                 
                 // Collect new letter spans
                 const newTitleLetters = document.querySelectorAll('#highlight-box .letter');
-                const newTextLetters = document.querySelectorAll('#lorem-text .letter');
+                const newTextLetters = document.querySelectorAll('#description-text .letter');
 
                 // 3. Anime.js Fade In - Fast left-to-right for title
                 anime.timeline({})
@@ -445,7 +445,7 @@ function setupContentEntrance() {
     // All three elements need to be wrapped so they can be targeted by the entrance animation.
     wrapTextInSpans(staticIntro); 
     wrapTextInSpans(highlightBox);
-    wrapTextInSpans(loremText);
+    wrapTextInSpans(description);
 
     let hasAnimated = false;
 
@@ -471,7 +471,7 @@ function setupContentEntrance() {
                 // Slower staggered reveal for paragraph (runs simultaneously)
                 anime.timeline({})
                     .add({
-                        targets: '#lorem-text .letter',
+                        targets: '#description-text .letter',
                         opacity: [0, 1],
                         easing: "easeInOutQuad",
                         duration: 2250,
