@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portfolio</title>
+    <!-- Google Fonts: Inter Light -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS for simple, responsive styling of the main content -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Anime.js for the new text effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 1. The Full-Screen Loading Overlay -->
+    <div id="loading-screen">
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- 2. The SCROLLABLE Hero Section -->
+    <div id="main-content">
+        <div id="hero-text-container" class="reveal-text-container" style="opacity: 0;">
+            <div id="text-block" class="text-block">
+                <!-- Content injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. The Actual Page Content (Now handles the scroll-fade effect) -->
+    <!-- The content-section is now centered via CSS -->
+    <div class="content-section" id="content-section">
+        
+        <h2 id="content-heading" class="content-heading">
+            <!-- WRAPPED: "I'm a" is now in a span for animation targeting -->
+            <span id="static-intro">I'm a</span> 
+            <span class="highlight-box" id="highlight-box">
+                ML Engineer
+            </span>
+        </h2>
+        <p id="lorem-text" class="lorem-paragraph">
+            I specialize in building intelligent systems across natural language processing, computer vision, and multimodal AI. My work spans dataset design, model training, evaluation, and scalable deployment, with a focus on creating AI systems that are practical, accessible, and grounded in real-world use cases.
+        </p>
+    </div>
+
+    <!-- 4. Technical Skills Section -->
+    <div class="skills-section">
+        <h1 class="skills-title">Technical skills</h1>
+        
+        <div class="skills-category" data-skills="Python, C, C++, Go, SQL">
+            <span class="category-label">Programming</span>
+        </div>
+        
+        <div class="skills-category" data-skills="TensorFlow, PyTorch, Scikit-learn, Keras, Transformers, NumPy, Pandas">
+            <span class="category-label">Machine Learning & AI</span>
+        </div>
+        
+        <div class="skills-category" data-skills="React, Node.js, Express, HTML5, CSS3, JavaScript, p5.js, Flask, Firebase, MongoDB">
+            <span class="category-label">Web Development</span>
+        </div>
+        
+        <div class="skills-category" data-skills="Git, Docker, Windows, UNIX, Linux">
+            <span class="category-label">Developer Tools & Environments</span>
+        </div>
+        
+        <div class="skills-category" data-skills="Photoshop, Illustrator, Figma, Canva">
+            <span class="category-label">Graphic Design</span>
+        </div>
+    </div>
+
+    <!-- 5. Parallax Carousel Section -->
+    <div class="projects-section">
+        <h1 class="page-title">My projects</h1>
+
+        <div class="carousel-container">
+            <div class="track-wrapper">
+                <div class="track-flex">
+                    <!-- Original panels -->
+                     <div class="panel-wide" data-url="https://sohaila-abdulsattar-mohammed.github.io/The-NYUAD-Hunger-Quest/">
+                        <div class="image-container">
+                            <img class="image" src="assets/images/The-NYUAD-Hunger-Quest.png" alt="A Project">
+                        </div>
+                        <div class="panel-content">
+                            <div class="panel-title">The NYUAD Hunger Quest</div>
+                            <div class="panel-subtitle">A dramatic web comic about something every NYUAD student has struggled with at least once</div>
+                        </div>
+                    </div>
+                     <div class="panel-wide" data-url="https://sohaila-abdulsattar-mohammed.github.io/A-Typical-Journey-to-D2/">
+                        <div class="image-container">
+                            <img class="image" src="assets/images/A-Typical-Journey-to-D2.png" alt="A Project">
+                        </div>
+                        <div class="panel-content">
+                            <div class="panel-title">A Typical Journey to D2</div>
+                            <div class="panel-subtitle">A fun website hosting our short film that captures the everyday quirks of navigating NYUAD's D2 dining hall</div>
+                        </div>
+                    </div>
+                    
+                     <div class="panel-wide" data-url="https://sohaila-abdulsattar-mohammed.github.io/The-Locked-Phone-Mystery/">
+                        <div class="image-container">
+                            <img class="image" src="assets/images/The-Locked-Phone-Mystery.png" alt="A Project">
+                        </div>
+                        <div class="panel-content">
+                            <div class="panel-title">The Locked Phone Mystery</div>
+                            <div class="panel-subtitle">An audio-based story told through a phone interface, where you piece things together by listening in on calls</div>
+                        </div>
+                    </div>
+                     <div class="panel-wide" data-url="https://sohaila-abdulsattar-mohammed.github.io/The-Fifth-Floor/">
+                        <div class="image-container">
+                            <img class="image" src="assets/images/The-Fifth-Floor.png" alt="A Project">
+                        </div>
+                        <div class="panel-content">
+                            <div class="panel-title">The Fifth Floor</div>
+                            <div class="panel-subtitle">A first-person interactive experience that invites you to explore a dorm floor where things don't feel quite right</div>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Contact Section -->
+    <div class="contact-section" id="contact-section">
+        <div class="contact-container">
+            <div class="contact-text-block">
+                <div class="contact-title">Let's Connect</div>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:sohaila.mohammed@nyu.edu" class="contact-link">sohaila.mohammed@nyu.edu</a>
+                <a href="https://www.linkedin.com/in/sohaila-abdulsattar-mohammed/" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/Sohaila-Abdulsattar-Mohammed" target="_blank" class="contact-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. GSAP Library for Parallax Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- 8. JavaScript Orchestration -->
+    <script src="script.js"></script>
+
+</body>
+</html>
